@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 const AppServer = require("./lib/appserver");
 
-var server = new AppServer();
+const server = new AppServer();
 server.begin();
 

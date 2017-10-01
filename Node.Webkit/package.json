@@ -5,5 +5,8 @@
   "main": "server.js",
   "author": {
     "name": "andwa"
+  },
+  "dependencies": {
+    "router": "^1.3.2"
   }
 }
