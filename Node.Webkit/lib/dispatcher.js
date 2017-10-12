@@ -11,7 +11,7 @@ var dispatcher = class {
     static dispatch(request, response) {
         const serverError = (code,content)=> {
             response.writeHead(code, constants.TEXTPLAIN_CONTENT_TYPE);
-            response.end(content);
+            response.end(content.message);
         };
 
         const renderHtml = (content) => {
@@ -25,9 +25,10 @@ var dispatcher = class {
             fs.readFile("./views/index.html",
                 (error, content) => {
                     if (error) {
-                        serverError(500);
+                        serverError(500,error);
                     } else {
-                        renderHtml(content);
+                        console.log("Fetching view for request");
+                        renderHtml(content);                    
                     }
                 });
         } else {
